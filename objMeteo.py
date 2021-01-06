@@ -18,16 +18,12 @@ class Meteo:
     def lireMeteo(self):
         self._lireXML()
         self._dateHeure = time.asctime(time.localtime(time.time()))
-        temperature = float(self._temperature.replace("°C", "").replace(",", "."))
-        if  temperature > self._ancienneLectureTemperature:
+        if float(self._temperature.replace("°C", "").replace(",", ".")) > self._ancienneLectureTemperature:
             self._tendanceTemperature = "hausse"
-        elif temperature< self._ancienneLectureTemperature:
+        elif float(self._temperature.replace("°C", "").replace(",", ".")) < self._ancienneLectureTemperature:
             self._tendanceTemperature = "baisse"
         else:
             self._tendanceTemperature = self._tendanceTemperature
-
-        self._ancienneLectureTemperature = temperature
-
     @property
     def condition(self):
         return self._condition
