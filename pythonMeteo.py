@@ -135,6 +135,8 @@ class Ui_Dialog(object):
                 self.lCondition.setPixmap(QtGui.QPixmap("images/venteux.png"))
         elif condition == "Partiellement nuageux":
             self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
+        elif condition == "Généralement nuageux":
+            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
         else:
             self.lCondition.setPixmap(QtGui.QPixmap("images/nulle.png"))
 
