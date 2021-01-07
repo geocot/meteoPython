@@ -121,22 +121,17 @@ class Ui_Dialog(object):
     def _icone(self, condition):
         if condition == "Nuageux":
             self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux.png"))
-        elif condition == "Ensoleillé":
+        elif condition == "Ensoleillé" or condition == "Généralement ensoleillé":
             self.lCondition.setPixmap(QtGui.QPixmap("images/soleil.png"))
-        elif condition == "Alternance de soleil et de nuages":
+        elif condition == "Alternance de soleil et de nuages" or condition == "Alternance de soleil et de nuages" or \
+                condition == "Partiellement nuageux" or condition == "Généralement nuageux":
             self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
-        elif condition == "Dégagé":
+        elif condition == "Dégagé" or condition == "Généralement dégagé":
             self.lCondition.setPixmap(QtGui.QPixmap("images/lune.png"))
         elif condition == "Passages nuageux":
-            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_lune.pnglune.png"))
-        elif condition == "Alternance de soleil et de nuages":
-                self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
+            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_lune.png"))
         elif condition == "Poudrerie basse":
                 self.lCondition.setPixmap(QtGui.QPixmap("images/venteux.png"))
-        elif condition == "Partiellement nuageux":
-            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
-        elif condition == "Généralement nuageux":
-            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
         else:
             self.lCondition.setPixmap(QtGui.QPixmap("images/nulle.png"))
 
