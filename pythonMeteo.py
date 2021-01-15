@@ -73,6 +73,7 @@ class Ui_Dialog(object):
         self.lAlerte = QtWidgets.QLabel(Dialog)
         self.lAlerte.setGeometry(QtCore.QRect(20, 170, 161, 31))
         self.lAlerte.setObjectName("lAlerte")
+        self.lAlerte.setStyleSheet('color:red')
         self._afficheMeteo()
 
         #Raffraichir la page
@@ -121,17 +122,24 @@ class Ui_Dialog(object):
     def _icone(self, condition):
         if condition == "Nuageux":
             self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux.png"))
-        elif condition == "Ensoleillé" or condition == "Généralement ensoleillé":
+        elif condition == "Ensoleillé":
             self.lCondition.setPixmap(QtGui.QPixmap("images/soleil.png"))
-        elif condition == "Alternance de soleil et de nuages" or condition == "Alternance de soleil et de nuages" or \
-                condition == "Partiellement nuageux" or condition == "Généralement nuageux":
+        elif condition == "Alternance de soleil et de nuages":
             self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
-        elif condition == "Dégagé" or condition == "Généralement dégagé":
+        elif condition == "Dégagé":
             self.lCondition.setPixmap(QtGui.QPixmap("images/lune.png"))
         elif condition == "Passages nuageux":
-            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_lune.png"))
+            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_lune.pnglune.png"))
+        elif condition == "Alternance de soleil et de nuages":
+                self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
         elif condition == "Poudrerie basse":
                 self.lCondition.setPixmap(QtGui.QPixmap("images/venteux.png"))
+        elif condition == "Partiellement nuageux":
+            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
+        elif condition == "Généralement nuageux":
+            self.lCondition.setPixmap(QtGui.QPixmap("images/nuageux_soleil.png"))
+        elif condition == "Brume":
+            self.lCondition.setPixmap(QtGui.QPixmap("images/brume.png"))
         else:
             self.lCondition.setPixmap(QtGui.QPixmap("images/nulle.png"))
 

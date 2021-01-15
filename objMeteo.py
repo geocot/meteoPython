@@ -57,6 +57,7 @@ class Meteo:
             soup = bs.BeautifulSoup(req, 'lxml')
             categories = soup.find_all('category')
             sommaire = soup.find_all('summary')
+            title = soup.find_all('title')
             for n, categorie in enumerate(categories):
                 if categorie.attrs['term']=="Conditions actuelles":
                     sansBold = str(sommaire[n]).replace("<b>","").replace("</b>", "").split("<br/>")
@@ -68,6 +69,14 @@ class Meteo:
                         if item.count('Pression') > 0:
                             self._pression = item.split(":")[1].split("kPa")[0].strip()
                             self._tendancePression = item.split("la")[1].strip()
+
+            avertissementTrouve = False
+            for n, titre in enumerate(title):
+                if titre.text.count("AVERTISSEMENT") > 0:
+                    self._avertissement = titre.text.split(',')[0]
+                    avertissementTrouve = True
+            if avertissementTrouve == False:
+                self._avertissement = ""
 
         except Exception as e:
             print('Oups un problème...' + str(e))
